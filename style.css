@@ -1,0 +1,203 @@
+body {
+    margin: 0;
+        font-family: 'Poppins', sans-serif;
+       
+}
+
+.section0 {
+    width: 100%;
+    height: 100px;
+    padding: 20px 50px;
+    box-sizing: border-box;
+    color: rgb(114, 171, 169);
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;            /* vertically center header and nav */
+}
+.logo-title {
+    display: flex;
+    align-items: center; 
+     gap: 5px;   
+}
+.section0 header h1 {
+    margin: 0;
+    font-size: 70px;
+    letter-spacing: 2px;
+}
+.logo {
+    width: 100px;          /* adjust size as needed */
+    height: auto;
+}
+.section0 nav {
+    display: flex;
+    gap: 20px; 
+}
+.section0 nav a {
+    text-decoration: none;
+    color:rgba(0, 0, 0, 0.7); 
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.2s;
+}
+.section0 nav a:hover {
+    color: rgb(114, 171, 169);
+    transform: scale(1.1);
+}
+.section {
+    width: 100%;
+    height: 700; 
+    padding: 200px 50px 0 50px;
+    overflow: hidden; 
+    text-align: left;  
+    color: white;   
+    background-size: cover;
+    background: 
+     linear-gradient(to right, rgba(0, 181, 173, 0.8), rgba(0, 181, 173, 0)), 
+    url('image.png') center/cover no-repeat;
+     background-size: 100% auto; 
+  
+}
+.section h2 {
+    font-size: 50px;
+    margin: 0 0 50px 0; 
+    font-weight: 700;
+}
+.section p {
+    font-size: 25px;
+    line-height: 1.6;
+    margin: 30px 0;
+}
+#appointmentBtn {
+    padding: 12px 50px;
+    background-color: rgba(0, 0, 0, 0.7); 
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 30px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#appointmentBtn:hover {
+    background-color: rgba(139, 177, 177, 0.7);
+    transform: scale(1.05);
+}
+
+
+.info-boxes {
+    display: flex;              
+    gap: 30px;                   
+    justify-content: center;  
+    width: 100%;                 
+    padding-top: 50px;  
+    padding-bottom: 10px; 
+}
+
+/* Individual boxes */
+.box {
+    background-color: rgba(255,255,255,0.6);
+    border-radius: 10px;
+    text-align: center;
+    width: 350px; 
+    height: 100px;
+    transition: 0.3s; /* smooth animation */
+}
+
+/* Hover effect */
+.box:hover {
+    background-color: rgba(255,255,255,0.9); /* lighter background */
+    transform: scale(1.05); /* slightly bigger */
+}
+.box h3 {
+    color: black;
+    text-decoration: underline;    /* underline text */
+    text-decoration-color: black;  /* underline color */
+    text-decoration-thickness: 2px; /* thickness of underline */
+    text-underline-offset: 3px;   /* space between text and underline */
+    font-weight: bold;
+    margin: 0 0 10px 0;
+    font-size: 20px;
+}
+
+.box p {
+    color: black;
+    margin: 0;
+    font-size: 20px;
+}
+.testimonial-container {
+    position: relative;
+    overflow: hidden;
+    height: 60px; /* adjust height for your text */
+    text-align: center;
+}
+ h3{
+    color: black;
+    text-align: center;
+    text-decoration: underline;    /* underline text */
+    text-decoration-color: black;  /* underline color */
+    text-decoration-thickness: 2px; /* thickness of underline */
+    text-underline-offset: 3px;   /* space between text and underline */
+    font-weight: bold;
+    font-size: 40px;
+}
+.testimonial {
+    position: absolute;
+    width: 100%;
+    opacity: 0;
+    font-size: 22px;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.testimonial.active {
+    opacity: 1;
+}
+
+.testimonial-buttons {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+.testimonial-buttons button {
+    padding: 5px 15px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    background-color: rgb(114, 171, 169);
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.testimonial-buttons button:hover {
+    background-color: rgb(130, 192, 191);
+}
+
+/* Footer */
+footer {
+    background-color: rgb(114, 171, 169);
+    text-align: center;
+    padding: 20px;
+    color: black;
+    margin-top: 40px;
+    font-size: 20px;
+}
+
+footer p {
+    margin: 5px 0;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    #slider img {
+          width: 100%;
+        height: auto; 
+    
+    }
+
+    nav {
+        flex-direction: column;
+    }
+}

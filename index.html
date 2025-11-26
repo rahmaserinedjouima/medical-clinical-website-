@@ -2,10 +2,125 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>SALUS Clinic - Home</title>
+    <link rel="stylesheet" href="style.css"> 
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
 </head>
+
 <body>
-    <h1>coucouu</h1>
+  <section class="section0">
+    <div class="logo-title">
+        <img src="logo.jpg" alt="SALUS Logo" class="logo">
+        <h1>SALUS</h1>
+    </div>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="services.html">Services</a>
+        <a href="appointment.html">Appointment</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+  </section>
+
+   
+    <!-- Welcome Section -->
+    <section class="section" id="imageID">
+        <h2>Welcome to <b style="color: black;">SALUS</b> Clinic</h2>
+        <p>
+           <!-- Medical excellence, compassionate care. -->
+            where your health and comfort are our <b style="color: black;">top priorities</b> <br>
+             our team is committed to providing <b style="color: black;">care</b> <br>
+            that is both <b style="color: black;">reliable</b> and truly <b style="color: black;">patient-centered</b>
+        </p>
+        <button id="appointmentBtn">Book Appointment</button>
+     <div class="info-boxes">
+        <div class="box">
+            <h3>Mission</h3>
+            <p>Provide trusted healthcare for all families.</p>
+        </div>
+        <div class="box">
+            <h3>Experience</h3>
+            <p>15+ years in medical excellence.</p>
+        </div>
+        <div class="box">
+            <h3>Services</h3>
+            <p>Comprehensive medical care for all ages.</p>
+        </div>
+    </div>
+   </section>
+  
+    <section class="testimonials">
+    <h3>What Our Patients Say</h3>
+    <div class="testimonial-container">
+        <p class="testimonial active">"Truly caring and professional team. I felt supported every step of the way." – Sarah L.</p>
+        <p class="testimonial">"Exceptional care with a personal touch. Highly recommend!" – Mohamed A.</p>
+        <p class="testimonial">"Welcoming environment and attentive staff. Made me feel at ease." – Amina B.</p>
+        <p class="testimonial">"Professional, warm, and always attentive. Couldn’t ask for more." – Karim T.</p>
+        <p class="testimonial">"Top-notch care in a compassionate setting. Felt truly valued." – Leila M.</p>
+    </div>
+    <div class="testimonial-buttons">
+      <button id="prev">&#10094;</button>  
+    <button id="next">&#10095;</button>
+    </div>
+</section>
+
+    <!-- Footer -->
+    <footer>
+        <p>Emergency Hotline: +213 77 88 62 55 6</p>
+        <p>© 2025 SALUS Clinic</p>
+    </footer>
+
+    <!-- JavaScript -->
+  <script>
+document.addEventListener("DOMContentLoaded", function() {
+    const testimonials = document.querySelectorAll(".testimonial");
+    let index = 0;
+
+    function showTestimonial(i) {
+        testimonials.forEach(t => t.classList.remove("active"));
+        testimonials[i].classList.add("active");
+    }
+
+    document.getElementById("next").addEventListener("click", function() {
+        index++;
+        if (index >= testimonials.length) index = 0;
+        showTestimonial(index);
+    });
+
+    document.getElementById("prev").addEventListener("click", function() {
+        index--;
+        if (index < 0) index = testimonials.length - 1;
+        showTestimonial(index);
+    });
+});
+</script>
+
+     <script>
+        document.addEventListener("DOMContentLoaded", function() {
+    const Images = [
+        "image.png",
+        "image2.png",
+        "image3.png",
+        "image4.png"
+    ];
+
+    let Index = 0;
+    const section = document.getElementById("imageID");
+
+    function changeBackground() {
+        section.style.background = `
+            linear-gradient(to right, rgba(0, 181, 173, 0.8), rgba(0, 181, 173, 0)),
+            url('${Images[Index]}') center/100% auto no-repeat
+        `;
+        Index++;
+        if (Index >= Images.length) Index = 0;
+    }
+
+    setInterval(changeBackground, 3000); 
+})// change every 3 seconds
+</script>
+
 </body>
 </html>
