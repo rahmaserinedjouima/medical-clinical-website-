@@ -1,6 +1,7 @@
 /* Fullscreen Contact Hero Section */body {
     margin: 0;
         font-family: 'Poppins', sans-serif;
+         overflow-x: hidden;
        
 }
 
@@ -43,7 +44,7 @@
     color: rgb(114, 171, 169);
     transform: scale(1.1);
 }
-.contact-hero {
+.contact {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -57,31 +58,29 @@
     position: absolute;
     left: 0;
     top: 0;
-    width: 60%;              /* How much of the page the image covers */
+    width: 60%;              
     height: 100%;
     background: url('contact-us.jpeg') center/cover no-repeat;
     z-index: 1;
 }
 
-/* Text on top of the image */
 .contact-details {
     position: relative;
-    z-index: 2;              /* Makes sure text is ABOVE image */
-    margin-left: 65%;        /* Push the text to the right side */
+    z-index: 2;              
+    margin-left: 65%;       
     padding: 20px;
     color: black;
     max-width: 450px;
 }
 
-/* Contact Details Styling */
 .contact-details h2 {
-    margin: 0;  /* removes default h2 margin */
+    margin: 0; 
     font-size: 25px; 
 }
 .phone {
-    width: 30px;       /* adjust size */
-    height: 30px;      /* adjust size */
-    vertical-align: middle;  /* aligns image with text */
+    width: 30px;     
+    height: 30px;     
+    vertical-align: middle;  
     margin: 10px;
 }
 .phone-icon {
@@ -95,8 +94,12 @@
     font-size: 18px;
     margin: 10px 0;
 }
-
-/* Call Button */
+.map-container iframe {
+  width: 50px;
+  height: 50px;
+  border: 0;
+  border-radius: 10px;
+}
 .call-btn {
     margin-top: 20px;
     background: black;
@@ -112,9 +115,8 @@
     background: #00b5ad;
 }
 
-/* Responsive for phones */
 @media (max-width: 800px) {
-    .contact-hero {
+    .contact {
         flex-direction: column;
         height: auto;
     }
@@ -130,12 +132,53 @@
         padding: 20px;
     }
 }
-/* Wrapper to center the box */
-.contact-blue-wrapper {
+.contact-wrapper {
     display: flex;
-    justify-content: center;   /* center horizontally */
-    margin: 50px 0;            /* space from other sections */
+    justify-content: center;   
+    margin: 20px 0;            
 }
+
+.contact-box {
+    background: rgb(114, 171, 169);       
+    width: 80%;
+    max-width: 1100px;
+    padding: 30px 50px;       
+    border-radius: 10px;
+    display: flex;              
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    box-shadow: 0 4px 18px rgba(0,0,0,0.15);
+}
+
+.info-item {
+    text-align: center;
+    width: 33%;               
+    padding: 0 5px;         
+}
+
+.info-item h4 {
+    font-size: 25px;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.info-item p {
+    font-size: 16px;
+    margin: 5px 0;
+}
+
+@media (max-width: 600px) {
+    .contact-blue-box {
+        flex-direction: column;  
+        gap: 25px;
+        padding: 25px 20px;
+    }
+    .info-item {
+        width: 100%;           
+    }
+}
+
 
 footer {
     background-color: rgb(114, 171, 169);
@@ -151,46 +194,5 @@ footer p {
 }
 
 
-.contact-blue-box {
-    background: rgb(114, 171, 169);       /* blue color */
-    width: 80%;
-    max-width: 1100px;
-    padding: 35px 50px;        /* padding inside the box */
-    border-radius: 12px;
-    display: flex;              /* horizontal layout */
-    justify-content: space-between;
-    align-items: center;
-    color: white;
-    box-shadow: 0 4px 18px rgba(0,0,0,0.15);
-}
 
-.info-item {
-    text-align: center;
-    width: 33%;                /* equal width */
-    padding: 0 10px;           /* optional horizontal padding */
-}
-
-.info-item h4 {
-    font-size: 22px;
-    margin-bottom: 10px;
-    font-weight: 600;
-}
-
-/* Text */
-.info-item p {
-    font-size: 16px;
-    margin: 5px 0;
-}
-
-/* Responsive for mobile */
-@media (max-width: 600px) {
-    .contact-blue-box {
-        flex-direction: column;  /* stack vertically on small screens */
-        gap: 25px;
-        padding: 25px 20px;
-    }
-    .info-item {
-        width: 100%;            /* full width on mobile */
-    }
-}
 

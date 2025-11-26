@@ -33,8 +33,8 @@
         Since opening our doors more than a decade ago, we have grown into a trusted medical center known for our professionalism, warmth, and dedication to patient well-being.
        </p>
        <div class="buttons">
-        <button id="seeDoctors">See our doctors</button>
-        <button id="values">See our values</button>
+        <button onclick="location.href='#doctors'"> Our Doctors</button>
+    <button onclick="location.href='#values'">Our Values</button>
        </div>
         
 
@@ -42,7 +42,7 @@
 </section>
 
 <div class="values-section">
-    <h2>Our values</h2>
+    <h2 id="values">Our values</h2>
     <div class="value-box">
         
         <h3>Compassion</h3>
@@ -60,39 +60,48 @@
     </div>
 </div>
 
-<!-- Meet Our Doctors -->
-    <section class="doctors-section">
-  <h2>Meet Our Doctors</h2>
+   <section class="doctors-section">
+  <h2 id="doctors">Meet Our Doctors</h2>
   <div class="doctors-slider">
     <button id="prevDoc">&#10094;</button>
-        <div class="doctor-card">
-            <img src="doctor1.png" alt="">
-            <h3>Dr. Sarah Benali</h3>
-            <p>Cardiologist</p>
-        </div>
-        <div class="doctor-card">
-            <img src="doctor2.png" alt="">
-            <h3>Dr. Ahmed Merabet</h3>
-            <p>Pediatrician</p>
-        </div>
-        <div class="doctor-card">
-            <img src="doctor3.png" alt="">
-            <h3>Dr. Leila Yousfi</h3>
-            <p>Dermatologist</p>
-        </div>
-        <div class="doctor-card">
-            <img src="doctor4.png" alt="">
-            <h3>Dr. Mohamed Talbi</h3>
-            <p>Neurologist</p>
-        </div>
-        <div class="doctor-card">
-            <img src="doctor5.png" alt="">
-            <h3>Dr. Benyahia Souad </h3>
-            <p>Surgeon</p>
+    <div class="doctors-grid">
+      <div class="doctor-card">
+        <img src="doctor1.png" alt="">
+        <h3>Dr. Sarah Benali</h3>
+        <p>Cardiologist</p>
+          <p class="doctor-desc">Specializes in heart health and cardiovascular care for all ages.</p>
+      </div>
+      <div class="doctor-card">
+        <img src="doctor2.png" alt="">
+        <h3>Dr. Ahmed Merabet</h3>
+        <p>Pediatrician</p>
+          <p class="doctor-desc">Provides comprehensive care for infants, children, and teenagers.</p>
+
+      </div>
+      <div class="doctor-card">
+        <img src="doctor3.png" alt="">
+        <h3>Dr. Leila Yousfi</h3>
+        <p>Dermatologist</p>
+          <p class="doctor-desc">Treats skin conditions and offers cosmetic dermatology services.</p>
+
+      </div>
+      <div class="doctor-card">
+        <img src="doctor4.png" alt="">
+        <h3>Dr. Mohamed Talbi</h3>
+        <p>Neurologist</p>
+          <p class="doctor-desc">Expert in diagnosing and managing neurological disorders.</p>
+      </div>
+      <div class="doctor-card">
+        <img src="doctor5.png" alt="">
+        <h3>Dr. Benyahia Souad</h3>
+        <p>Surgeon</p>
+          <p class="doctor-desc">Performs general and specialized surgeries with patient-focused care.</p>
+      </div>
     </div>
     <button id="nextDoc">&#10095;</button>
   </div>
 </section>
+
 
 
     </div>
@@ -100,36 +109,52 @@
 
 <!-- Footer -->
 <footer>
-    <p>Emergency Hotline: +213 77 88 62 55 </p>
-    <p>© 2025 SALUS Clinic</p>
+  <div class="footer-container">
+    <div class="footer-info">
+      <p><strong>Clinic Address:</strong> 123 Main Street, Algiers, Algeria</p>
+      <p><strong>Emergency Hotline:</strong> +213 77 88 62 55</p>
+      <p><strong>Email:</strong> contact@salusclinic.com</p>
+    </div>
+    <div class="footer-social">
+      <a href="#" class="social-link">Facebook</a>
+      <a href="#" class="social-link">Twitter</a>
+      <a href="#" class="social-link">Instagram</a>
+    </div>
+    <div class="footer-copy">
+      <p>© 2025 SALUS Clinic</p>
+    </div>
+  </div>
 </footer>
+
 <script>
-  const grid = document.querySelector('.doctors-grid');
+ const grid = document.querySelector('.doctors-grid');
 const prevBtn = document.getElementById('prevDoc');
 const nextBtn = document.getElementById('nextDoc');
 
-let index = 0; // start at first set
-const totalCards = document.querySelectorAll('.doctor-card').length;
+let index = 0;
+const cards = document.querySelectorAll('.doctor-card');
+const totalCards = cards.length;
 const visibleCards = 3;
 
 function updateSlider() {
-    const move = -(index * (100 / visibleCards)); // percentage move
-    grid.style.transform = `translateX(${move}%)`;
+  const move = -(index * (100 / visibleCards));
+  grid.style.transform = `translateX(${move}%)`;
 }
 
 nextBtn.addEventListener('click', () => {
-    if (index < totalCards - visibleCards) {
-        index++;
-        updateSlider();
-    }
+  if (index < totalCards - visibleCards) {
+    index++;
+    updateSlider();
+  }
 });
 
 prevBtn.addEventListener('click', () => {
-    if (index > 0) {
-        index--;
-        updateSlider();
-    }
+  if (index > 0) {
+    index--;
+    updateSlider();
+  }
 });
+
 
 
 </script>
