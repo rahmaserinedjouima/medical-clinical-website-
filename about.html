@@ -2,10 +2,136 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>About Us - SALUS Clinic</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
+
 <body>
-    
+
+<section class="section0">
+    <div class="logo-title">
+        <img src="logo.jpg" alt="SALUS Logo" class="logo">
+        <h1>SALUS</h1>
+    </div>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="services.html">Services</a>
+        <a href="appointment.html">Appointment</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+</section>
+
+<!-- About Section -->
+<section class="about-section">
+    <div class="about-content">
+        <h2>About Our Clinic</h2>
+        <p>
+          SALUS Clinic was founded with a simple mission: to provide safe, reliable, and compassionate healthcare for every family.
+        Since opening our doors more than a decade ago, we have grown into a trusted medical center known for our professionalism, warmth, and dedication to patient well-being.
+       </p>
+       <div class="buttons">
+        <button id="seeDoctors">See our doctors</button>
+        <button id="values">See our values</button>
+       </div>
+        
+
+    </div>
+</section>
+
+<div class="values-section">
+    <h2>Our values</h2>
+    <div class="value-box">
+        
+        <h3>Compassion</h3>
+        <p>We believe every patient deserves understanding, respect, and care that treats them as a person—not just a case.</p>
+    </div>
+
+    <div class="value-box">
+        <h3>Excellence</h3>
+        <p>Our team of skilled medical professionals is committed to delivering high-quality clinical care using modern methods and equipment.</p>
+    </div>
+
+    <div class="value-box">
+        <h3>Integrity</h3>
+        <p>We value transparency, honesty, and long-term trust with every patient who walks through our doors.</p>
+    </div>
+</div>
+
+<!-- Meet Our Doctors -->
+    <section class="doctors-section">
+  <h2>Meet Our Doctors</h2>
+  <div class="doctors-slider">
+    <button id="prevDoc">&#10094;</button>
+        <div class="doctor-card">
+            <img src="doctor1.png" alt="">
+            <h3>Dr. Sarah Benali</h3>
+            <p>Cardiologist</p>
+        </div>
+        <div class="doctor-card">
+            <img src="doctor2.png" alt="">
+            <h3>Dr. Ahmed Merabet</h3>
+            <p>Pediatrician</p>
+        </div>
+        <div class="doctor-card">
+            <img src="doctor3.png" alt="">
+            <h3>Dr. Leila Yousfi</h3>
+            <p>Dermatologist</p>
+        </div>
+        <div class="doctor-card">
+            <img src="doctor4.png" alt="">
+            <h3>Dr. Mohamed Talbi</h3>
+            <p>Neurologist</p>
+        </div>
+        <div class="doctor-card">
+            <img src="doctor5.png" alt="">
+            <h3>Dr. Benyahia Souad </h3>
+            <p>Surgeon</p>
+    </div>
+    <button id="nextDoc">&#10095;</button>
+  </div>
+</section>
+
+
+    </div>
+</section>
+
+<!-- Footer -->
+<footer>
+    <p>Emergency Hotline: +213 77 88 62 55 </p>
+    <p>© 2025 SALUS Clinic</p>
+</footer>
+<script>
+  const grid = document.querySelector('.doctors-grid');
+const prevBtn = document.getElementById('prevDoc');
+const nextBtn = document.getElementById('nextDoc');
+
+let index = 0; // start at first set
+const totalCards = document.querySelectorAll('.doctor-card').length;
+const visibleCards = 3;
+
+function updateSlider() {
+    const move = -(index * (100 / visibleCards)); // percentage move
+    grid.style.transform = `translateX(${move}%)`;
+}
+
+nextBtn.addEventListener('click', () => {
+    if (index < totalCards - visibleCards) {
+        index++;
+        updateSlider();
+    }
+});
+
+prevBtn.addEventListener('click', () => {
+    if (index > 0) {
+        index--;
+        updateSlider();
+    }
+});
+
+
+</script>
 </body>
 </html>
