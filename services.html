@@ -2,10 +2,122 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>SALUS Clinic - Medical Services</title>
+    <link rel="stylesheet" href="style2.css"> 
+
+    <!-- jQuery + jQuery UI CSS -->
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <!-- jQuery UI -->
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
+
+    <script>
+        $(function() {
+            $("#services-accordion").accordion({
+                collapsible: true,
+                active: false,
+                heightStyle: "content"
+            });
+        });
+    </script>
 </head>
+
 <body>
-    
+
+<section class="section0">
+    <div class="logo-title">
+        <img src="assets\logo.jpg" alt="SALUS Logo" class="logo">
+        <h1>SALUS</h1>
+    </div>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="services.html" style="color: rgb(114, 171, 169);">Services</a>
+        <a href="appointment.html">Appointment</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+</section>
+
+<!-- ======================= SERVICES ======================= -->
+
+<section class="services-section">
+    <div class="services-content"></div>
+    <h2>Our Medical Services</h2>
+
+    <div id="services-accordion">
+
+        <h3>General Medicine</h3>
+        <div>
+            <p>Comprehensive diagnosis, treatment, and preventive care for adults and children.</p>
+        </div>
+
+        <h3>Cardiology</h3>
+        <div>
+            <p>Heart check-ups, ECG, stress tests, and management of cardiovascular diseases.</p>
+        </div>
+
+        <h3>Pediatrics</h3>
+        <div>
+            <p>Complete healthcare for infants, children, and teenagers.</p>
+        </div>
+
+        <h3>Dermatology</h3>
+        <div>
+            <p>Treatment of skin conditions, acne therapy, allergy tests, and cosmetic dermatology.</p>
+        </div>
+
+        <h3>Gynecology & Obstetrics</h3>
+        <div>
+            <p>Women’s health services, prenatal care, fertility guidance, and pregnancy follow-ups.</p>
+        </div>
+
+        <h3>Emergency Care</h3>
+        <div>
+            <p>24/7 emergency support for injuries, urgent illnesses, and critical conditions.</p>
+        </div>
+
+        <h3>Medical Imaging</h3>
+        <div>
+            <p>Ultrasound, X-rays, CT scans, and other diagnostic imaging services.</p>
+        </div>
+
+        <h3>Laboratory Tests</h3>
+        <div>
+            <p>Blood tests, urine analysis, microbiology tests, and complete lab diagnostics.</p>
+        </div>
+
+    </div>
+    </div>
+</section>
+
+<!-- ===================== FOOTER ====================== -->
+
+<footer>
+  <div class="footer-container">
+
+    <div class="footer-info">
+      <div class="info-item"><strong>Clinic Address:</strong> quartier 400 logements Ville Nouvelle Ali Mendjeli, Constantine</div>
+      <div class="info-item"><strong>Emergency Hotline:</strong> +213 77 88 62 55</div>
+      <div class="info-item"><strong>Email:</strong> contact@salusclinic.com</div>
+      <div class="info-item"><strong>Working Hours:</strong> Mon–Sat: 8:00–18:00</div>
+    </div>
+
+    <div class="footer-social">
+      <a href="#" class="social-link"><img src="assets/facebook.png" alt="Facebook"></a>
+      <a href="#" class="social-twitter"><img src="assets/twitter.png" alt="Twitter"></a>
+      <a href="#" class="social-link"><img src="assets/instagram.png" alt="Instagram"></a>
+    </div>
+
+    <div class="footer-copy">
+      <p>© 2025 SALUS Clinic</p>
+    </div>
+
+  </div>
+</footer>
+
 </body>
 </html>
