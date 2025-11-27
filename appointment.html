@@ -2,10 +2,295 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>SALUS Clinic - Appointment</title>
+        <link rel="stylesheet" href="style.css"> 
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    
 </head>
 <body>
-    
+
+<section class="section0">
+    <div class="logo-title">
+        <img src="assets/logo.jpg" alt="SALUS Logo" class="logo">
+        <h1>SALUS</h1>
+    </div>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="services.html">Services</a>
+        <a href="appointment.html" style="color: rgb(114, 171, 169);;">Appointment</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+</section>
+
+<section class="appointement">
+    <div class="appointment-card" role="region" aria-label="Appointment booking">
+        <div class="card-left">
+            <h2>Book an Appointment</h2>
+            <p>Fill the form and we will contact you to confirm the appointment.</p>
+
+            <form id="appointmentForm" novalidate>
+                <div class="form-group">
+                    <label for="firstName">First Name *</label>
+                    <input id="firstName" name="firstName" type="text" required>
+                    <span class="error" id="err-firstName" aria-live="polite"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="lastName">Last Name *</label>
+                    <input id="lastName" name="lastName" type="text" required>
+                    <span class="error" id="err-lastName" aria-live="polite"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="birthdate">Birthdate *</label>
+                    <input id="birthdate" name="birthdate" type="date" required>
+                    <small class="helper" id="ageDisplay">Age: —</small>
+                    <span class="error" id="err-birthdate"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="gender">Gender *</label>
+                    <select id="gender" name="gender" required>
+                        <option value="">Select</option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                        <option value="Other">Other</option>
+                    </select>
+                    <span class="error" id="err-gender"></span>
+                </div>
+
+                <div class="form-group full">
+                    <label for="service">Requested Service *</label>
+                    <select id="service" name="service" required>
+                        <option value="">Select Service</option>
+                        <option>General Consultation</option>
+                        <option>Pediatric Consultation</option>
+                        <option>Dental Checkup</option>
+                        <option>Physiotherapy Session</option>
+                        <option>Vaccination</option>
+                        <option>Lab Test</option>
+                        <option>Follow-up Appointment</option>
+                        <option>Special Consultation</option>
+                    </select>
+                    <span class="error" id="err-service"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="prefDate">Preferred Date *</label>
+                    <input id="prefDate" name="prefDate" type="date" required>
+                    <span class="error" id="err-prefDate"></span>
+                </div>
+                <div class="form-group" id="timeSlotWrap">
+                    <label for="prefTime">Preferred Time Slot *</label>
+                    <input id="prefTime" name="prefTime" type="time">
+                    <span class="error" id="err-prefTime"></span>
+                </div>
+
+
+                <div class="form-group">
+                    <label for="email">Email *</label>
+                    <input id="email" name="email" type="email" required>
+                    <span class="error" id="err-email"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Phone Number *</label>
+                    <input id="phone" name="phone" type="tel" required placeholder="e.g. 0550123456">
+                    <span class="error" id="err-phone"></span>
+                </div>
+
+                <div class="form-group full">
+                    <label for="address">Address</label>
+                    <input id="address" name="address" type="text">
+                </div>
+
+                <div class="form-group full">
+                    <label for="history">Allergies / Medical History</label>
+                    <textarea id="history" name="history"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="doctor">Select a specific doctor *</label>
+                    <select id="doctor" name="doctor" required>
+                        <option value="">Select Doctor</option>
+                    </select>
+                    <span class="error" id="err-doctor"></span>
+                </div>
+
+                <div class="form-group full" >
+                    <label for="medicalFile">Upload Medical File</label>
+                    <input id="medicalFile" name="medicalFile" type="file" accept="application/pdf,image/*">
+                </div>
+
+                <div class="form-group full">
+                    <button class="btn-submit" type="submit">Send Message</button>
+                    <div id="formMsg" role="status" aria-live="polite"></div>
+                </div>
+            </form>
+        </div>
+
+        <aside class="card-right">
+                <div class="business-hours">
+                <h4> 🕒BUSINESS HOUES</h4>
+                <p>Mon–Fri: 8am - 8pm<br>Sat: 9am - 5pm</p>
+                </div>
+              <div class="emergency">
+                <h4> 📞CALL US </h4>
+                <p>+213 21 45 67 89</p>
+                <p>+213 77 88 62 55</p>
+              </div>
+            <div class="email">
+             <h4>📧 EMAIL US</h4>
+        <p>contact@salusclinic.com</p>
+    <p>support@salusclinic.com</p> 
+</div>
+                <div class="note">
+                    <h4>📝NOTE</h4>
+                <p>Please bring any relevant medical documents. Large files can be uploaded during confirmation.</p>
+           
+          
+            </div>
+        </aside>
+    </div>
+</section>
+
+<footer>
+  <div class="footer-container">
+    <div class="footer-info">
+      <div class="info-item"><strong>Clinic Address:</strong> quartier 400 logements Ville Nouvelle Ali Mendjeli, Constantine</div>
+      <div class="info-item"><strong>Emergency Hotline:</strong> +213 77 88 62 55</div>
+      <div class="info-item"><strong>Email:</strong> contact@salusclinic.com</div>
+      <div class="info-item"><strong>Working Hours:</strong> Mon–Sat: 8:00–18:00</div>
+    </div>
+    <div class="footer-social">
+      <img src="assets/facebook.png">
+      <img src="assets/twitter.png">
+      <img src="assets/instagram.png">
+    </div>
+    <div class="footer-copy"><p>© 2025 SALUS Clinic</p></div>
+  </div>
+</footer>
+
+<script>
+$(function(){
+    // Doctor lists per service
+    const doctorList = {
+        "General Consultation": ["Dr. Adams","Dr. Nora"],
+        "Pediatric Consultation": ["Dr. Sofia"],
+        "Dental Checkup": ["Dr. Karim"],
+        "Physiotherapy Session": ["Dr. Yasmine"],
+        "Vaccination": ["Dr. Ahmed"],
+        "Lab Test": ["Dr. Labidi"],
+        "Follow-up Appointment": ["Dr. Adams","Dr. Nora"],
+        "Special Consultation": ["Dr. Specialist 1","Dr. Specialist 2"]
+    };
+
+    function populateDoctors(service){
+        const $doc = $('#doctor');
+        $doc.empty().append('<option value="">Select Doctor</option>');
+        if(doctorList[service]){
+            doctorList[service].forEach(d => $doc.append($('<option>').text(d).val(d)));
+        }
+    }
+
+    // on service change: show time slot if Special Consultation & update doctors
+    $('#service').on('change', function(){
+        const v = $(this).val();
+        if(v === 'Special Consultation'){
+            $('#timeSlotWrap').slideDown();
+            $('#prefTime').prop('required', true);
+        } else {
+            $('#timeSlotWrap').slideUp();
+            $('#prefTime').prop('required', false).val('');
+        }
+        populateDoctors(v);
+    });
+
+    // calculate age
+    $('#birthdate').on('change', function(){
+        const v = $(this).val();
+        if(!v) { $('#ageDisplay').text('Age: —'); return; }
+        const b = new Date(v);
+        const today = new Date();
+        let age = today.getFullYear() - b.getFullYear();
+        const m = today.getMonth() - b.getMonth();
+        if(m < 0 || (m === 0 && today.getDate() < b.getDate())) age--;
+        $('#ageDisplay').text('Age: ' + age);
+    });
+
+    // Validation helpers
+    function showError(id, msg){ $('#' + id).text(msg); }
+    function clearErrors(){ $('.error').text(''); $('#formMsg').text(''); }
+
+    // Phone: check length (between 8 and 15 digits, only digits)
+    function validPhone(p){
+        const digits = p.replace(/\D/g,'');
+        return digits.length >= 8 && digits.length <= 15;
+    }
+
+    function validEmail(e){
+        return /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(e);
+    }
+
+    // on submit
+    $('#appointmentForm').on('submit', function(ev){
+        ev.preventDefault();
+        clearErrors();
+        let valid = true;
+
+        // required fields
+        const required = ['firstName','lastName','birthdate','gender','service','prefDate','email','phone','doctor'];
+        required.forEach(function(field){
+            const el = $('#' + field);
+            if(el.length && (!el.val() || el.val().trim() === '')){
+                showError('err-' + field, 'This field is required');
+                valid = false;
+            }
+        });
+
+        // email
+        const email = $('#email').val().trim();
+        if(email && !validEmail(email)){
+            showError('err-email','Please enter a valid email'); valid = false;
+        }
+        // phone
+        const phone = $('#phone').val().trim();
+        if(phone && !validPhone(phone)){
+            showError('err-phone','Please enter a valid phone (8-15 digits)'); valid = false;
+        }
+
+        // birthdate -> reasonable (age 0-130)
+        const bd = $('#birthdate').val();
+        if(bd){
+            const bdate = new Date(bd);
+            const today = new Date();
+            if(bdate > today){ showError('err-birthdate','Birthdate cannot be in the future'); valid = false; }
+            const age = today.getFullYear() - bdate.getFullYear();
+            if(age < 0 || age > 130){ showError('err-birthdate','Enter a valid birthdate'); valid = false; }
+        }
+
+        if(!valid){
+            $('#formMsg').text('Please fix the errors above.').css('color','#d9534f');
+            return;
+        }
+
+        // If all valid, show a success inline message
+        $('#formMsg').text('Appointment submitted successfully! We will contact you to confirm.').css('color','green');
+
+        // Example: collect form data (not sending anywhere in this demo)
+        const formData = new FormData($('#appointmentForm')[0]);
+        // console.log(Object.fromEntries(formData.entries()));
+
+        // visually highlight submitted state
+        $('.btn-submit').text('Submitted').prop('disabled', true);
+    });
+
+    // Initialize doctor list with default empty selection (or you can pick a default service)
+    populateDoctors('');
+});
+</script>
 </body>
 </html>
