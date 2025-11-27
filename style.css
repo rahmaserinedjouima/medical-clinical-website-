@@ -54,7 +54,7 @@ body {
     background-size: cover;
     background: 
      linear-gradient(to right, rgba(0, 181, 173, 0.8), rgba(0, 181, 173, 0)), 
-    url('image.png') center/cover no-repeat;
+    url('assets\image.png') center/cover no-repeat;
      background-size: 100% auto; 
   
 }
@@ -185,7 +185,7 @@ body {
     background-size: cover;
     background: 
      linear-gradient(to right, rgba(0, 181, 173, 0.8), rgba(0, 181, 173, 0)), 
-    url('aboutUs.png') center/cover no-repeat;
+    url('assets/aboutUs.png') center/cover no-repeat;
      background-size: 100% auto; 
   
 }
@@ -270,7 +270,7 @@ body {
 .doctors-section {
   margin: 40px auto;
   text-align: center;
-  overflow: hidden; /* prevents horizontal scroll */
+  overflow: hidden; 
 }
 
 .doctors-section h2 {
@@ -288,7 +288,7 @@ body {
   position: relative;
   display: flex;
   align-items: center;
-  overflow: hidden; /* hide overflowing cards */
+  overflow: hidden; 
 }
 
 .doctors-grid {
@@ -299,7 +299,7 @@ body {
 
 /* Show 3 cards at a time */
 .doctor-card {
-  flex: 0 0 calc((100% - 40px) / 3); /* 3 cards + gap */
+  flex: 0 0 calc((100% - 40px) / 3);
   box-sizing: border-box;
   padding: 20px;
   background-color: rgba(255, 255, 255, 0.8);
@@ -351,41 +351,47 @@ body {
 footer {
     background-color: rgb(114, 171, 169);
     color: black;
-    padding: 30px 20px;
+    padding: 15px 10px;
     font-size: 16px;
 }
 
 .footer-container {
+    width: 100%;
+    height: 160px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 15px;
+    gap: 10px;
 }
 
-.footer-info p {
-    margin: 5px 0;
+.footer-info {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    gap: 5px 100px;
+        width: 90%;         
+}
+
+.footer-info .info-item {
+    margin: 3px 0;
 }
 
 .footer-social {
     display: flex;
-    gap: 15px;
+    gap: 20px;
 }
 
-.footer-social a {
-    text-decoration: none;
-    color: black;
-    font-weight: bold;
-    transition: color 0.3s;
+.footer-social img {
+    width: 30px;   
+    height: 30px;
+    padding-right: 10px;
+   
 }
 
-.footer-social a:hover {
-    color: white;
-}
-
-.footer-copy p {
+.footer-copy  {
     margin-top: 10px;
     font-size: 14px;
 }
+
 
 /* Responsive for smaller screens */
 @media (max-width: 600px) {
