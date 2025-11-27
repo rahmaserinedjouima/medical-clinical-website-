@@ -94,7 +94,6 @@ body {
     padding-bottom: 10px; 
 }
 
-/* Individual boxes */
 .box {
     background-color: rgba(255,255,255,0.6);
     border-radius: 10px;
@@ -153,9 +152,10 @@ body {
 
 .testimonial-buttons {
     margin-top: 10px;
+    margin-bottom: 10px;
     display: flex;
     justify-content: center;
-    gap: 30px;
+    gap: 100px;
 }
 
 .testimonial-buttons button {
@@ -206,7 +206,7 @@ body {
     justify-content: center;  
     gap: 200px;                 
     margin-top: 10px;  
-    box-shadow: 0 4px 18px rgba(0,0,0,0.15);
+    margin-bottom: 20px;
 
 }
 
@@ -227,7 +227,7 @@ body {
 }
 .values-section {
  display: flex;
-    flex-wrap: wrap;        /* allows h2 to be on its own line */
+    flex-wrap: wrap;      
     justify-content: center;
     gap: 30px;
     margin: 40px auto;
@@ -235,7 +235,7 @@ body {
     text-align: center;
 }
 .values-section h2 {
-     width: 100%;            /* forces the title to be on top */
+     width: 100%;           
     font-size: 40px;
     text-decoration: underline;
     text-underline-offset: 5px;
@@ -253,7 +253,7 @@ body {
 
 .value-box h3 {
     font-size: 22px;
-    color: rgb(0, 140, 140);
+    color: rgb(114, 171, 169);
     margin-bottom: 10px;
     text-decoration: underline;
 }
@@ -263,9 +263,6 @@ body {
     color: black;
     line-height: 1.5;
 }
-
-
-
 
 .doctors-section {
   margin: 40px auto;
@@ -281,7 +278,7 @@ body {
 }
 .doctor-desc {
   
-  color: rgb(0, 140, 140);
+  color: rgb(114, 171, 169);
   
 }
 .doctors-slider {
@@ -416,4 +413,114 @@ footer {
     nav {
         flex-direction: column;
     }
+}
+
+
+
+/* appointement page  */
+.appointement {
+    width: 100%;
+    padding: 60px 40px;
+    display: flex;
+    justify-content: center;
+    background: linear-gradient(to right, rgba(0,181,173,0.2), rgba(0,181,173,0)),
+                url('assets/image.png') center/cover no-repeat;
+}
+
+.appointment-card {
+    display: flex;
+    max-width: 1100px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    border-radius: 20px;
+}
+
+.card-left {
+    flex: 2;
+    background:rgba(114, 171, 169,0.7);
+    color: black;
+    padding: 28px;
+    display: flex;
+    flex-direction: column;
+}
+.card-left h2 {
+     font-size: 26px; 
+     margin-bottom: 10px;
+     }
+.card-left p { 
+    text-align: center;
+    opacity: 0.95; 
+    margin-bottom: 18px; }
+
+.card-right {
+    flex: 0.5;
+    background: #fff;
+    padding: 22px;
+    text-align: center;
+    display: flex;
+     flex-direction: column;
+     justify-content: space-between;
+    
+}
+.card-right h4{
+    font-size: 20px;
+    color: rgb(114, 171, 169);
+}
+
+/* Form */
+form { 
+    display: grid;
+     grid-template-columns: repeat(2, 1fr);
+      gap: 12px; 
+}
+.form-group { 
+    display: flex; 
+    flex-direction: column; 
+}
+label { 
+    font-weight: 600; 
+    font-size: 14px; 
+}
+input, select, textarea { 
+    padding: 10px;
+     border-radius: 6px;
+      border: 1px solid #ccc; 
+      font-size: 14px; 
+      margin-top: 6px;
+     }
+textarea { 
+    min-height: 60px; 
+    resize: vertical; }
+.full { grid-column: 1/3; }
+.btn-submit { grid-column: 1/3; padding: 12px; border: none; background: rgba(103, 58, 183,0.9); color: white; font-weight: 700; border-radius: 6px; cursor: pointer; }
+.helper, .error, .success { font-size: 13px; margin-top: 6px; }
+.error { color: #d9534f; }
+.success { color: green; }
+#timeSlotWrap { display: none; }
+.form-group.full input[type="file"] {
+    padding: 8px 12px;             /* spacing inside */
+    border-radius: 6px;            /* rounded corners like other inputs */
+    border: 1px solid #ccc;        /* light gray border */
+    font-size: 14px;               /* text size */
+    background-color: #f9f9f9;     /* subtle background */
+    cursor: pointer;               /* show pointer on hover */
+    width: 100%;                   /* full width of the parent container */
+}
+
+.form-group.full input[type="file"]:hover {
+    border-color: #673ab7;         /* purple border on hover */
+    background-color: #f0f0f0;     /* slightly darker background */
+}
+
+.form-group.full label {
+    font-weight: 600;
+    margin-bottom: 6px;            /* space between label and input */
+}
+
+/* Responsive */
+@media(max-width: 980px) {
+    .appointment-card { flex-direction: column; }
+    .card-right { order: 2; }
+    form { grid-template-columns: 1fr; }
+    .full { grid-column: auto; }
+    .card-left { padding: 20px; }
 }
