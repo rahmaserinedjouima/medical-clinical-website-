@@ -66,6 +66,99 @@
     </div>
 </section>
 
+   <section class="service-section">
+  <h2 id="doctors"> Our Services</h2>
+  <div class="service-slider">
+    <button id="prevDoc">&#10094;</button>
+
+    <div class="service-grid">
+      
+     <div class="service-card">
+  <img src="assets/service1.png" alt="">
+   <h3>General Consultation</h3>
+</div>
+
+<div class="service-card">
+  <img src="assets/service2.png" alt="">
+     <h3>Pediatric Consultation</h3>
+
+</div>
+
+<div class="service-card">
+  <img src="assets/service3.png" alt="">
+    <h3>Cardiology Consultation</h3>
+
+
+</div>
+
+<div class="service-card">
+  <img src="assets/service4.png" alt="">
+       <h3>Dermatology Consultation</h3>
+
+</div>
+
+<div class="service-card">
+  <img src="assets/service5.png" alt="">
+       <h3>Gynecology & Obstetrics Consultation</h3>
+
+
+</div>
+
+<div class="service-card">
+  <img src="assets/service6.png" alt="">
+       <h3>Emergency Consultation</h3>
+
+</div>
+
+<div class="service-card">
+  <img src="assets/service7.png" alt="">
+       <h3>Medical Imaging</h3>
+
+</div>
+
+<div class="service-card">
+  <img src="assets/service8.png" alt="">
+       <h3>Dental Checkup</h3>
+
+</div>
+
+<div class="service-card">
+  <img src="assets/service9.png" alt="">
+       <h3>Physiotherapy Session</h3>
+
+
+</div>
+
+<div class="service-card">
+  <img src="assets/service10.png" alt="">
+       <h3>Vaccination</h3>
+
+</div>
+
+<div class="service-card">
+  <img src="assets/service11.png" alt="">
+       <h3>Lab Test</h3>
+
+
+</div>
+
+<div class="service-card">
+  <img src="assets/service12.png" alt="">
+       <h3>Follow-up Appointment</h3>
+
+</div>
+
+<div class="service-card">
+  <img src="assets/service13.png" alt="">
+       <h3>Special Consultation</h3>
+
+
+</div> 
+    </div>
+    <button id="nextDoc">&#10095;</button>
+  </div>
+</section>
+
     <!-- Footer -->
   <footer>
   <div class="footer-container">
@@ -112,6 +205,34 @@ document.addEventListener("DOMContentLoaded", function() {
         if (index < 0) index = testimonials.length - 1;
         showTestimonial(index);
     });
+ const grid = document.querySelector('.service-grid');
+const prevBtn = document.getElementById('prevDoc');
+const nextBtn = document.getElementById('nextDoc');
+
+let index2 = 0;
+const cards = document.querySelectorAll('.service-card');
+const totalCards = cards.length;
+const visibleCards = 3;
+
+function updateSlider() {
+  const move = -(index2 * (100 / visibleCards));
+  grid.style.transform = `translateX(${move}%)`;
+}
+
+nextBtn.addEventListener('click', () => {
+  if (index2 < totalCards - visibleCards) {
+    index2++;
+    updateSlider();
+  }
+});
+
+prevBtn.addEventListener('click', () => {
+  if (index2 > 0) {
+    index2--;
+    updateSlider();
+  }
+});
+
 });
 </script>
 
