@@ -287,12 +287,12 @@ body {
 .service-grid {
   display: flex;
   transition: transform 0.3s ease-in-out;
-  gap: 20px;
+  gap: 10px;
 }
 
 /* Show 3 cards at a time */
 .service-card {
-  flex: 0 0 calc((100% - 40px) / 3);
+  flex: 0 0 15%;
   box-sizing: border-box;
   padding: 20px;
   background-color: rgba(255, 255, 255, 0.8);
@@ -313,15 +313,13 @@ body {
   margin-bottom: 5px;
 }
 
-.doctor-card:hover {
+.service-card:hover {
   transform: scale(1.05);
   transition: transform 0.3s;
 }
-
-/* Buttons */
 .service-slider button {
   position: absolute;
-  top: 50%;
+  top: 40%;
   transform: translateY(-50%);
   border: none;
   background-color: rgb(114, 171, 169);
@@ -363,12 +361,13 @@ body {
 .doctors-grid {
   display: flex;
   transition: transform 0.3s ease-in-out;
-  gap: 20px;
+  gap: 10px;
 }
 
 /* Show 3 cards at a time */
 .doctor-card {
-  flex: 0 0 calc((100% - 40px) / 3);
+  /* flex: 0 0 calc((100% - 40px) / 3); */
+   flex: 0 0 20%;
   box-sizing: border-box;
   padding: 20px;
   background-color: rgba(255, 255, 255, 0.8);
@@ -401,7 +400,7 @@ body {
 /* Buttons */
 .doctors-slider button {
   position: absolute;
-  top: 50%;
+  top: 40%;
   transform: translateY(-50%);
   border: none;
   background-color: rgb(114, 171, 169);
