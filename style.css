@@ -307,6 +307,7 @@ body {
 .doctor-card img {
   width: 100%;
   height: auto;
+  max-width: 400px; 
   border-radius: 10px;
   margin-bottom: 10px;
 }

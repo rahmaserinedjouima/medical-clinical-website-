@@ -68,6 +68,11 @@
                         <option value="">Select Service</option>
                         <option>General Consultation</option>
                         <option>Pediatric Consultation</option>
+                        <option>Cardiology Consultation</option>
+                        <option>Dermatology Consultation</option>
+                        <option>Gynecology & Obstetrics Consultation</option>
+                        <option>Emergency Consultation</option>
+                        <option>Medical Imaging </option>
                         <option>Dental Checkup</option>
                         <option>Physiotherapy Session</option>
                         <option>Vaccination</option>
@@ -178,15 +183,20 @@
 $(function(){
     // Doctor lists per service
     const doctorList = {
-        "General Consultation": ["Dr. Adams","Dr. Nora"],
-        "Pediatric Consultation": ["Dr. Sofia"],
-        "Dental Checkup": ["Dr. Karim"],
-        "Physiotherapy Session": ["Dr. Yasmine"],
-        "Vaccination": ["Dr. Ahmed"],
-        "Lab Test": ["Dr. Labidi"],
-        "Follow-up Appointment": ["Dr. Adams","Dr. Nora"],
-        "Special Consultation": ["Dr. Specialist 1","Dr. Specialist 2"]
-    };
+       "General Consultation": ["Dr. Alia", "Dr. Houssam"],
+  "Pediatric Consultation": ["Dr. Sofia"],
+  "Cardiology Consultation": ["Dr. Ahmed"],            
+  "Dermatology Consultation": ["Dr. Alicia"],            
+  "Gynecology & Obstetrics Consultation": ["Dr. Ayoub"],
+  "Emergency Consultation": ["Dr. Karim"],               
+  "Medical Imaging": ["Dr. Samia"],                        
+  "Dental Checkup": ["Dr. Mahdi"], // same name, but different doctor card image if needed
+  "Physiotherapy Session": ["Dr. Ahlem"],
+  "Vaccination": ["Dr. Lamine"],
+  "Lab Test": ["Dr. Labidi"],
+  "Follow-up Appointment": ["Dr. Alia", "Dr. Houssam"],
+  "Special Consultation": ["Dr. Lina", "Dr. Lidia"]
+};
 
     function populateDoctors(service){
         const $doc = $('#doctor');
