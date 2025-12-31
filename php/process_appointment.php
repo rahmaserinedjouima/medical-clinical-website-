@@ -1,10 +1,16 @@
 <?php
 require_once 'connection.php'; // Include database connection
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
+require_once '../PHPMailer-master/src/Exception.php';
+require_once '../PHPMailer-master/src/PHPMailer.php';
+require_once '../PHPMailer-master/src/SMTP.php';
 
 $errors = []; // Array to store errors
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Sanitize and get inputs (matching your HTML names)
+    // Sanitize and get inputs
     $first_name        = htmlspecialchars(trim($_POST['firstName']));
     $last_name         = htmlspecialchars(trim($_POST['lastName']));
     $birthdate         = $_POST['birthdate'];
@@ -45,22 +51,58 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
     }
 
-    // If no errors, insert into database
+    // Insert into database if no errors
     if (empty($errors)) {
         $stmt = $pdo->prepare("INSERT INTO appointments 
             (first_name, last_name, birthdate, gender, requested_service, preferred_date, preferred_time, email, phone, address, allergies_history, selected_doctor, medical_file) 
             VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-
         $stmt->execute([
             $first_name, $last_name, $birthdate, $gender, $requested_service,
             $preferred_date, $preferred_time, $email, $phone, $address,
             $allergies_history, $selected_doctor, $medical_file_path
         ]);
 
-        echo "<p style='color:green;'>Your appointment request has been submitted successfully.</p>";
-        exit;
-    } else {
-        // Display all errors
+        // Send email
+        $mail = new PHPMailer(true);
+        try {
+            $mail->isSMTP();
+            $mail->Host       = 'smtp.gmail.com';
+            $mail->SMTPAuth   = true;
+            $mail->Username   = 'salusclinic29@gmail.com';
+            $mail->Password   = 'ymdjbpjulfexmags';
+            $mail->SMTPSecure = 'tls';
+            $mail->Port       = 587;
+
+            $mail->setFrom('salusclinic29@gmail.com', 'SALUS Clinic');
+            $mail->addAddress($email, "$first_name $last_name");
+
+            $mail->isHTML(true);
+            $mail->Subject = 'SALUS Clinic - Appointment Confirmation';
+            $mail->Body    = "
+                <p>Dear $first_name $last_name,</p>
+                <p>Your appointment request has been submitted successfully.</p>
+                <p><strong>Service:</strong> $requested_service<br>
+                <strong>Date:</strong> $preferred_date<br>"
+                .($preferred_time ? "<strong>Time:</strong> $preferred_time<br>" : "").
+                "<strong>Doctor:</strong> $selected_doctor</p>
+                <p>Thank you,<br>SALUS Clinic</p>
+            ";
+
+            $mail->send();
+        } catch (Exception $e) {
+            // Store error instead of echoing
+            $errors[] = "Appointment submitted, but email could not be sent. Mailer Error: {$mail->ErrorInfo}";
+        }
+
+        // Success message if no errors (including email)
+        if (empty($errors)) {
+            echo "<p style='color:green;'>Your appointment request has been submitted successfully.</p>";
+            exit;
+        }
+    }
+
+    // Display errors if any
+    if (!empty($errors)) {
         foreach ($errors as $error) {
             echo "<p style='color:red;'>$error</p>";
         }
