@@ -37,21 +37,23 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <head>
     <meta charset="UTF-8">
     <title>Admin Login - SALUS Clinic</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="login.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
 </head>
 <body>
   <section class="section0">
       <div class="logo-title">
-          <img src="assets/logo.jpg" alt="SALUS Logo" class="logo">
+          <img src="../assets/logo.jpg" alt="SALUS Logo" class="logo">
           <h1>SALUS</h1>
       </div>
 
       <nav>
-          <a href="index.html">Home</a>
-          <a href="about.html">About Us</a>
-          <a href="services.html">Services</a>
-          <a href="appointment.html">Appointment</a>
-          <a href="contact.html">Contact</a>
+          <a href="../index.html">Home</a>
+          <a href="../about.html">About Us</a>
+          <a href="../services.html">Services</a>
+          <a href="../appointment.html">Appointment</a>
+          <a href="../contact.html">Contact</a>
           <a href="login.php">Login</a> <!-- Highlight active page if you like -->
       </nav>
   </section>
@@ -59,8 +61,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   <section class="section">
       <h2>Admin Login</h2>
       <?php if($error): ?>
-          <p style="color:red;"><?= $error ?></p>
+          <p class="login-error"><?= $error ?></p>
       <?php endif; ?>
+
 
       <form method="POST" action="login.php">
           <input type="text" name="username" placeholder="Username" required>
@@ -68,6 +71,27 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
           <button type="submit">Login</button>
       </form>
   </section>
+  <footer>
+  <div class="footer-container">
+    <div class="footer-info">
+      <div class="info-item"><strong>Clinic Address:</strong> quartier 400 logements Ville Nouvelle Ali Mendjeli, Constantine</div>
+      <div class="info-item"><strong>Emergency Hotline:</strong> +213 77 88 62 55</div>
+      <div class="info-item"><strong>Email:</strong> contact@salusclinic.com</div>
+      <div class="info-item"><strong>Working Hours:</strong> Mon–Sat: 8:00–18:00</div>
+    </div>
+
+    <div class="footer-social">
+      <a href="#"><img src="../assets/facebook.png" alt="Facebook"></a>
+      <a href="#"><img src="../assets/twitter.png" alt="Twitter"></a>
+      <a href="#"><img src="../assets/instagram.png" alt="Instagram"></a>
+    </div>
+
+    <div class="footer-copy">
+      <p>© 2025 SALUS Clinic</p>
+    </div>
+  </div>
+</footer>
+
 
 </body>
 </html>

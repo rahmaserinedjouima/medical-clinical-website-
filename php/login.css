@@ -1,0 +1,244 @@
+/* =========================
+   GLOBAL
+========================= */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    min-height: 100vh;
+
+    /* Background image */
+    background: 
+        linear-gradient(
+            rgba(255, 255, 255, 0.75),
+            rgba(255, 255, 255, 0.75)
+        ),
+        url("../assets/login-bg.jpg") center / cover no-repeat fixed;
+}
+
+/* =========================
+   HEADER + NAVBAR
+========================= */
+
+.section0 {
+    width: 100%;
+    height: 100px;
+    padding: 20px 50px;
+    color: rgb(114, 171, 169);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-title {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.logo {
+    width: 100px;
+    height: auto;
+}
+
+.section0 h1 {
+    margin: 0;
+    font-size: 30px;
+    letter-spacing: 2px;
+}
+
+.section0 nav {
+    display: flex;
+    gap: 20px;
+}
+
+.section0 nav a {
+    text-decoration: none;
+    color: rgba(0, 0, 0, 0.7);
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.2s;
+}
+
+.section0 nav a:hover {
+    color: rgb(114, 171, 169);
+    transform: scale(1.1);
+}
+
+/* =========================
+   LOGIN SECTION
+========================= */
+
+.section {
+    min-height: calc(100vh - 200px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    background:
+        linear-gradient(
+            rgba(144,171,169,0.6),
+            rgba(0,181,173,0)
+        ),
+        url("../assets/admin.jpeg") center / cover no-repeat;
+
+    padding: 40px 20px;
+}
+
+
+.section h2 {
+    font-size: 36px;
+    color:black;
+    margin-bottom: 20px;
+}
+
+.section form {
+    background: white;
+    padding: 30px 35px;
+    width: 100%;
+    max-width: 380px;
+    border-radius: 12px;
+    box-shadow: 0 6px 25px rgba(0,0,0,0.15);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.section input {
+    padding: 12px 14px;
+    font-size: 16px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+
+.section input:focus {
+    outline: none;
+    border-color: rgb(114, 171, 169);
+}
+
+.section button {
+    background: rgb(114, 171, 169);
+    color: white;
+    border: none;
+    padding: 12px;
+    font-size: 18px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.section button:hover {
+    background: #00b5ad;
+}
+
+.section p {
+    font-size: 14px;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 700px) {
+    .section0 {
+        flex-direction: column;
+        height: auto;
+        gap: 10px;
+    }
+
+    .section0 h1 {
+        font-size: 45px;
+    }
+
+    .section0 nav {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}
+/* =========================
+   FOOTER (SAME AS MAIN SITE)
+========================= */
+
+footer {
+    background-color: rgb(114, 171, 169);
+    color: black;
+    padding: 12px 10px;
+    font-size: 16px;
+}
+
+.footer-container {
+    width: 100%;
+    min-height: 160px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.footer-info {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5px 330px;
+    width: 90%;
+    white-space: nowrap;
+}
+
+.footer-info .info-item {
+    margin: 3px 0;
+}
+
+.footer-social {
+    display: flex;
+    gap: 20px;
+}
+
+.footer-social img {
+    width: 30px;
+    height: 30px;
+    padding-right: 10px;
+}
+
+.footer-copy {
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+/* Footer responsive */
+@media (max-width: 600px) {
+    .footer-info {
+        grid-template-columns: 1fr;
+        gap: 10px;
+        white-space: normal;
+        text-align: center;
+    }
+
+    .footer-social {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+    }
+}
+/* =========================
+   LOGIN ERROR MESSAGE
+========================= */
+
+.login-error {
+    color: #b00020;
+    background: #fdecea;
+    border: 2px solid #f5c2c7;
+    padding: 18px 22px;
+    border-radius: 10px;
+
+    font-size: 26px;        /* VERY BIG TEXT */
+    font-weight: 700;
+    letter-spacing: 0.5px;
+
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+

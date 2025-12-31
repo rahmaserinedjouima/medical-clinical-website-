@@ -31,10 +31,36 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <head>
 <meta charset="UTF-8">
 <title>Edit Appointment</title>
+<link rel="stylesheet" href="../style.css"> 
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
 </head>
 <body>
-<div class="container mt-5">
+    <section class="section0">
+    <div class="logo-title">
+        <img src="../assets\logo.jpg" alt="SALUS Logo" class="logo">
+        <h1>SALUS</h1>
+    </div>
+
+    <nav>
+        <a href="../index.html" style="color: rgb(114, 171, 169);;">Home</a>
+        <a href="../about.html">About Us</a>
+        <a href="../services.html">Services</a>
+        <a href="../appointment.html">Appointment</a>
+        <a href="../contact.html">Contact</a>
+        <a href="../php/login.php">Login</a>
+
+    </nav>
+  </section>
+<div class="container mt-5" style="
+    background: linear-gradient(to right, rgba(114,171,169,0.7), rgba(0,181,173,0.7));
+    padding: 30px;
+    border-radius: 12px;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    color: black;
+">
 <h2>Edit Appointment</h2>
 <form method="POST">
 <div class="mb-3">
@@ -93,5 +119,27 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <a href="manage_appointments.php" class="btn btn-secondary">Cancel</a>
 </form>
 </div>
+<footer>
+  <div class="footer-container">
+
+    <div class="footer-info">
+      <div class="info-item"><strong>Clinic Address:</strong> quartier 400 logements Ville Nouvelle Ali Mendjeli, Constantine</div>
+      <div class="info-item"><strong>Emergency Hotline:</strong> +213 77 88 62 55</div>
+      <div class="info-item"><strong>Email:</strong> contact@salusclinic.com</div>
+      <div class="info-item"><strong>Working Hours:</strong> Mon–Sat: 8:00–18:00</div>
+    </div>
+
+    <div class="footer-social">
+      <a href="#" class="social-link"><img src="../assets/facebook.png" alt="Facebook"></a>
+      <a href="#" class="social-twitter"><img src="../assets/twitter.png" alt="Twitter"></a>
+      <a href="#" class="social-link"><img src="../assets/instagram.png" alt="Instagram"></a>
+    </div>
+
+    <div class="footer-copy">
+      <p>© 2025 SALUS Clinic</p>
+    </div>
+
+  </div>
+</footer>
 </body>
 </html>

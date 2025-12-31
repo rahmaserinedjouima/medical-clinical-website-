@@ -15,16 +15,47 @@ $appointments = $stmt->fetchAll(PDO::FETCH_ASSOC);
 <meta charset="UTF-8">
 <title>Manage Appointments</title>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-
+<link rel="stylesheet" href="../style.css"> 
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 <!-- DataTables CSS -->
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
 
 </head>
 <body>
-<div class="container mt-5">
+  <section class="section0">
+    <div class="logo-title">
+        <img src="../assets\logo.jpg" alt="SALUS Logo" class="logo">
+        <h1>SALUS</h1>
+    </div>
+
+    <nav>
+        <a href="../index.html" style="color: rgb(114, 171, 169);;">Home</a>
+        <a href="../about.html">About Us</a>
+        <a href="../services.html">Services</a>
+        <a href="../appointment.html">Appointment</a>
+        <a href="../contact.html">Contact</a>
+        <a href="../php/login.php">Login</a>
+
+    </nav>
+  </section>
+<section style="
+    min-height: calc(100vh - 100px - 160px); /* keeps footer at bottom */
+    background: linear-gradient(to right, rgba(0,181,173,0.2), rgba(0,181,173,0)),
+                url('../assets/admin.jpeg') center/cover no-repeat;
+">
+<div class="container">
 <h2>Manage Appointments</h2>
 
-<table id="appointments" class="table table-striped table-bordered">
+ <table style="
+      width: 90%;
+      border-collapse: collapse;
+      background: linear-gradient(to right, rgba(114,171,169,0.7), rgba(0,181,173,0.7));
+      color: black;
+      border-radius: 10px;
+      overflow: hidden;
+      backdrop-filter: blur(5px);
+      text-align: left;
+  ">
 <thead>
 <tr>
 <th>First Name</th>
@@ -54,6 +85,7 @@ $appointments = $stmt->fetchAll(PDO::FETCH_ASSOC);
 </tbody>
 </table>
 </div>
+</section>
 
 <!-- jQuery -->
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
@@ -69,5 +101,27 @@ $(document).ready(function() {
     });
 });
 </script>
+<footer>
+  <div class="footer-container">
+
+    <div class="footer-info">
+      <div class="info-item"><strong>Clinic Address:</strong> quartier 400 logements Ville Nouvelle Ali Mendjeli, Constantine</div>
+      <div class="info-item"><strong>Emergency Hotline:</strong> +213 77 88 62 55</div>
+      <div class="info-item"><strong>Email:</strong> contact@salusclinic.com</div>
+      <div class="info-item"><strong>Working Hours:</strong> Mon–Sat: 8:00–18:00</div>
+    </div>
+
+    <div class="footer-social">
+      <a href="#" class="social-link"><img src="../assets/facebook.png" alt="Facebook"></a>
+      <a href="#" class="social-twitter"><img src="../assets/twitter.png" alt="Twitter"></a>
+      <a href="#" class="social-link"><img src="../assets/instagram.png" alt="Instagram"></a>
+    </div>
+
+    <div class="footer-copy">
+      <p>© 2025 SALUS Clinic</p>
+    </div>
+
+  </div>
+</footer>
 </body>
 </html>
