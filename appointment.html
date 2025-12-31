@@ -31,7 +31,7 @@
             <h2>Book an Appointment</h2>
             <p>Fill the form and we will contact you to confirm the appointment.</p>
 
-            <form id="appointmentForm" novalidate>
+            <form id="appointmentForm" action="php/process_appointment.php" method="POST" enctype="multipart/form-data" novalidate>
                 <div class="form-group">
                     <label for="firstName">First Name *</label>
                     <input id="firstName" name="firstName" type="text" required>
@@ -286,6 +286,7 @@ $(function(){
             $('#formMsg').text('Please fix the errors above.').css('color','#d9534f');
             return;
         }
+        this.submit();
 
         // If all valid, show a success inline message
         $('#formMsg').text('Appointment submitted successfully! We will contact you to confirm.').css('color','green');
