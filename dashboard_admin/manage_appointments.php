@@ -15,47 +15,72 @@ $appointments = $stmt->fetchAll(PDO::FETCH_ASSOC);
 <meta charset="UTF-8">
 <title>Manage Appointments</title>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-<link rel="stylesheet" href="../style.css"> 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-<!-- DataTables CSS -->
+
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
-
+<style>
+    .section0 nav a {
+    text-decoration: none;
+    color:rgba(0, 0, 0, 0.7); 
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.2s;
+}
+.section0 nav a:hover {
+    color: rgb(114, 171, 169);
+    transform: scale(1.1);
+}
+</style>
 </head>
-<body>
-  <section class="section0">
-    <div class="logo-title">
-        <img src="../assets\logo.jpg" alt="SALUS Logo" class="logo">
-        <h1>SALUS</h1>
-    </div>
-
-    <nav>
-        <a href="../index.html" style="color: rgb(114, 171, 169);;">Home</a>
-        <a href="../about.html">About Us</a>
-        <a href="../services.html">Services</a>
-        <a href="../appointment.html">Appointment</a>
-        <a href="../contact.html">Contact</a>
-        <a href="../php/login.php">Login</a>
-
-    </nav>
-  </section>
-<section style="
-    min-height: calc(100vh - 100px - 160px); /* keeps footer at bottom */
-    background: linear-gradient(to right, rgba(0,181,173,0.2), rgba(0,181,173,0)),
-                url('../assets/admin.jpeg') center/cover no-repeat;
+<body style="background-color:#f4f8f8;">
+<section class="section0"
+style="
+width:100%;
+height:100px;
+padding:20px 50px;
+box-sizing:border-box;
+color:rgb(114,171,169);
+display:flex;
+justify-content:space-between;
+align-items:center;
+background-color:#ffffff;
 ">
-<div class="container">
-<h2>Manage Appointments</h2>
 
- <table style="
-      width: 90%;
-      border-collapse: collapse;
-      background: linear-gradient(to right, rgba(114,171,169,0.7), rgba(0,181,173,0.7));
-      color: black;
-      border-radius: 10px;
-      overflow: hidden;
-      backdrop-filter: blur(5px);
-      text-align: left;
+  <div class="logo-title"
+  style="
+  display:flex;
+  align-items:center;
+  gap:5px;
   ">
+    <img src="../assets/logo.jpg" alt="SALUS Logo"
+         class="logo"
+         style="width:100px;height:auto;">
+         
+    <h1 style="
+        margin:0;
+        font-size:40px;
+        letter-spacing:2px;
+        color:rgb(114,171,169);
+    ">SALUS</h1>
+  </div>
+
+  <nav style="display:flex;gap:20px;">
+    <a href="manage_appointments.php" style="text-decoration:none;font-weight:bold;font-size:18px;color: rgb(114, 171, 169);;">Admin Dashboard</a>
+    <a href="../php/logout.php" style="text-decoration:none;font-weight:bold;font-size:18px;color:rgba(0,0,0,0.7);">Log out</a>
+  </nav>
+
+</section>
+
+<div class="container mt-5"  style="
+     background:#ffffff;
+     padding:30px;
+     border-radius:12px;
+     box-shadow:0 8px 25px rgba(0,0,0,0.08);
+     " >
+<h2 style="margin-bottom:20px;
+font-weight:bold;
+letter-spacing:1px;color:rgb(114,171,169);">Manage Appointments</h2>
+
+<table id="appointments" class="table table-striped table-bordered">
 <thead>
 <tr>
 <th>First Name</th>
@@ -74,9 +99,15 @@ $appointments = $stmt->fetchAll(PDO::FETCH_ASSOC);
 <td><?= htmlspecialchars($a['preferred_date']) ?></td>
 <td>
 <a href="details.php?id=<?= $a['id'] ?>" class="btn btn-info btn-sm">Details</a>
+
 <a href="edit_appointment.php?id=<?= $a['id'] ?>" class="btn btn-primary btn-sm">Edit</a>
-<a href="delete_appointment.php?id=<?= $a['id'] ?>" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this appointment request?');">Delete</a>
+
+<button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#deleteModal">
+    Delete
+</button>
+
 <?php if($a['medical_file']): ?>
+
 <a href="../<?= $a['medical_file'] ?>" class="btn btn-secondary btn-sm" download>Download File</a>
 <?php endif; ?>
 </td>
@@ -85,43 +116,37 @@ $appointments = $stmt->fetchAll(PDO::FETCH_ASSOC);
 </tbody>
 </table>
 </div>
-</section>
-
-<!-- jQuery -->
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-<!-- DataTables JS -->
 <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
 <script>
 $(document).ready(function() {
     $('#appointments').DataTable({
-        "paging": true,     // Enable pagination
-        "searching": true,  // Enable search
-        "ordering": true    // Enable sorting
+        "paging": true,    
+        "searching": true,  
+        "ordering": true    
     });
 });
 </script>
-<footer>
-  <div class="footer-container">
-
-    <div class="footer-info">
-      <div class="info-item"><strong>Clinic Address:</strong> quartier 400 logements Ville Nouvelle Ali Mendjeli, Constantine</div>
-      <div class="info-item"><strong>Emergency Hotline:</strong> +213 77 88 62 55</div>
-      <div class="info-item"><strong>Email:</strong> contact@salusclinic.com</div>
-      <div class="info-item"><strong>Working Hours:</strong> Mon–Sat: 8:00–18:00</div>
+<!-- Simple Modal -->
+<div class="modal fade" id="deleteModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header" style="background-color:rgb(114,171,169); color:white;">
+        <h5 class="modal-title">Confirm Deletion</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        Are you sure you want to delete this appointment?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+        <a href="delete_appointment.php?id=<?= $a['id'] ?>" class="btn btn-danger">Delete</a>
+      </div>
     </div>
-
-    <div class="footer-social">
-      <a href="#" class="social-link"><img src="../assets/facebook.png" alt="Facebook"></a>
-      <a href="#" class="social-twitter"><img src="../assets/twitter.png" alt="Twitter"></a>
-      <a href="#" class="social-link"><img src="../assets/instagram.png" alt="Instagram"></a>
-    </div>
-
-    <div class="footer-copy">
-      <p>© 2025 SALUS Clinic</p>
-    </div>
-
   </div>
-</footer>
+</div>
+
 </body>
 </html>

@@ -54,7 +54,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
           <a href="../services.html">Services</a>
           <a href="../appointment.html">Appointment</a>
           <a href="../contact.html">Contact</a>
-          <a href="login.php">Login</a> <!-- Highlight active page if you like -->
+          <a href="login.php" style="color: rgb(114, 171, 169);;">Login</a> 
       </nav>
   </section>
 

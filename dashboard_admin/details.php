@@ -19,45 +19,78 @@ if (!$appointment) die("Appointment not found.");
 <head>
 <meta charset="UTF-8">
 <title>Appointment Details</title>
-<link rel="stylesheet" href="../style.css"> 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<style>
+      .section0 nav a {
+    text-decoration: none;
+    color:rgba(0, 0, 0, 0.7); 
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.2s;
+}
+.section0 nav a:hover {
+    color: rgb(114, 171, 169);
+    transform: scale(1.1);
+}
+</style>
 </head>
-<body>
-    <section class="section0">
-    <div class="logo-title">
-        <img src="../assets\logo.jpg" alt="SALUS Logo" class="logo">
-        <h1>SALUS</h1>
-    </div>
 
-    <nav>
-        <a href="../index.html" style="color: rgb(114, 171, 169);;">Home</a>
-        <a href="../about.html">About Us</a>
-        <a href="../services.html">Services</a>
-        <a href="../appointment.html">Appointment</a>
-        <a href="../contact.html">Contact</a>
-        <a href="../php/login.php">Login</a>
+<body style="background-color:#f4f8f8;">
 
-    </nav>
-  </section>
-<div class="container mt-5">
-<h2>Appointment Details</h2>
-<table style="
-    width: 100%;
-    border-collapse: collapse;
-    background: linear-gradient(to right, rgba(114,171,169,0.7), rgba(0,181,173,0.7));
-    color: black;
-    border-radius: 10px;
-    overflow: hidden;
-    backdrop-filter: blur(5px);
-    text-align: left;
-" >
+<section class="section0"
+style="
+width:100%;
+height:100px;
+padding:20px 50px;
+box-sizing:border-box;
+color:rgb(114,171,169);
+display:flex;
+background-color:#ffffff;
+justify-content:space-between;
+align-items:center;
+">
+
+  <div class="logo-title"
+  style="
+  display:flex;
+  align-items:center;
+  gap:5px;
+  ">
+    <img src="../assets/logo.jpg" alt="SALUS Logo"
+         class="logo"
+         style="width:100px;height:auto;">
+         
+    <h1 style="
+        margin:0;
+        font-size:40px;
+        letter-spacing:2px;
+        color:rgb(114,171,169);
+    ">SALUS</h1>
+  </div>
+
+  <nav style="display:flex;gap:20px;">
+    <a href="manage_appointments.php" style="text-decoration:none;font-weight:bold;font-size:18px;color:rgba(0,0,0,0.7);;">Admin Dashboard</a>
+    <a href="../php/logout.php" style="text-decoration:none;font-weight:bold;font-size:18px;color:rgba(0,0,0,0.7);">Log out</a>
+  </nav>
+
+</section>
+<div class="container mt-5" style="
+     background:#ffffff;
+     padding:30px;
+     border-radius:12px;
+     box-shadow:0 8px 25px rgba(0,0,0,0.08);
+     ">
+
+<h2 style="margin-bottom:20px;
+font-weight:bold;
+letter-spacing:1px;color:rgb(114,171,169);">Appointment Details</h2>
+
+<table class="table table-bordered" style="border:1px solid black;">
 <?php foreach ($appointment as $key => $value): ?>
 <tr>
-<th style="padding: 10px; border-bottom: 1px solid rgba(0,0,0,0.2);">
-    <?= htmlspecialchars(ucwords(str_replace('_',' ',$key))) ?>
-  </th>
-<td style="padding: 10px; border-bottom: 1px solid rgba(0,0,0,0.2);">
+<th><?= htmlspecialchars(ucwords(str_replace('_',' ',$key))) ?></th>
+
+<td style="background-color:#f4f8f8;">
 <?php 
 if($key === 'medical_file' && $value){
     echo "<a href='../$value' download>Download File</a>";
@@ -71,27 +104,5 @@ if($key === 'medical_file' && $value){
 </table>
 <a href="manage_appointments.php" class="btn btn-secondary">Back</a>
 </div>
-<footer>
-  <div class="footer-container">
-
-    <div class="footer-info">
-      <div class="info-item"><strong>Clinic Address:</strong> quartier 400 logements Ville Nouvelle Ali Mendjeli, Constantine</div>
-      <div class="info-item"><strong>Emergency Hotline:</strong> +213 77 88 62 55</div>
-      <div class="info-item"><strong>Email:</strong> contact@salusclinic.com</div>
-      <div class="info-item"><strong>Working Hours:</strong> Mon–Sat: 8:00–18:00</div>
-    </div>
-
-    <div class="footer-social">
-      <a href="#" class="social-link"><img src="../assets/facebook.png" alt="Facebook"></a>
-      <a href="#" class="social-twitter"><img src="../assets/twitter.png" alt="Twitter"></a>
-      <a href="#" class="social-link"><img src="../assets/instagram.png" alt="Instagram"></a>
-    </div>
-
-    <div class="footer-copy">
-      <p>© 2025 SALUS Clinic</p>
-    </div>
-
-  </div>
-</footer>
 </body>
 </html>
