@@ -1,10 +1,13 @@
 <?php
 session_start();
-require_once '../php/connection.php';
-if (!isset($_SESSION['admin_logged_in'])) {
+if (
+    empty($_SESSION['logged_in']) ||
+    $_SESSION['role'] !== 'admin'
+) {
     header("Location: ../php/login.php");
     exit;
 }
+require_once '../php/connection.php';
 
 if (!isset($_GET['id'])) die("No appointment selected.");
 $id = intval($_GET['id']);

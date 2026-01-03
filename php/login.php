@@ -1,15 +1,16 @@
 <?php
 session_start();
 require_once 'connection.php';
+
 $error = '';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
-    $username = $_POST['username'] ?? '';
+    $username = trim($_POST['username'] ?? '');
     $password = $_POST['password'] ?? '';
 
     $stmt = $pdo->prepare(
-        "SELECT id, username, password
+        "SELECT id, username, password, role
          FROM authentication
          WHERE username = ?"
     );
@@ -17,13 +18,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
     if ($user && password_verify($password, $user['password'])) {
-        $_SESSION['admin_logged_in'] = true;
+
+        $_SESSION['logged_in'] = true;
         $_SESSION['user_id'] = $user['id'];
         $_SESSION['username'] = $user['username'];
-        echo 'Redirecting...';
-        echo '<a href="../dashboard_admin/manage_appointments.php">Go to Dashboard</a>';
-        header('Location: ../dashboard_admin/manage_appointments.php');
+        $_SESSION['role'] = strtolower(trim($user['role']));
+
+
+        if (strtolower(trim($user['role'])) === 'admin') {
+            header("Location: /medical-clinical-website-/dashboard_admin/manage_appointments.php");
+
+        } else {
+            header("Location: ../index.html");
+        }
         exit;
+
     } else {
         $error = 'Invalid username or password';
     }
@@ -55,21 +64,29 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
           <a href="../appointment.html">Appointment</a>
           <a href="../contact.html">Contact</a>
           <a href="login.php" style="color: rgb(114, 171, 169);;">Login</a> 
+          <a href="sign.php">Sign Up</a>
       </nav>
   </section>
 
   <section class="section">
-      <h2>Admin Login</h2>
+      <h2>Login</h2>
       <?php if($error): ?>
           <p class="login-error"><?= $error ?></p>
       <?php endif; ?>
 
 
       <form method="POST" action="login.php">
-          <input type="text" name="username" placeholder="Username" required>
-          <input type="password" name="password" placeholder="Password" required>
-          <button type="submit">Login</button>
-      </form>
+    <input type="text" name="username" placeholder="Username" required>
+    <input type="password" name="password" placeholder="Password" required>
+
+    <button type="submit">Login</button>
+
+    <p class="signup-text">
+        Don’t have an account?
+        <a href="sign.php">Sign In</a>
+    </p>
+</form>
+
   </section>
   <footer>
   <div class="footer-container">

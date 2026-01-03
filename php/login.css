@@ -43,6 +43,21 @@ body {
     width: 100px;
     height: auto;
 }
+.signup-text {
+    margin-top: 15px;
+    text-align: center;
+    font-size: 14px;
+}
+
+.signup-text a {
+    color: rgb(114, 171, 169);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.signup-text a:hover {
+    text-decoration: underline;
+}
 
 .section0 h1 {
     margin: 0;

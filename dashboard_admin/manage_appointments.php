@@ -1,10 +1,14 @@
 <?php
 session_start();
-require_once '../php/connection.php';
-if (!isset($_SESSION['admin_logged_in'])) {
-    header("Location: ../php/login.php");
+if (
+    !isset($_SESSION['logged_in']) ||
+    $_SESSION['role'] !== 'admin'
+) {
+    header('Location: ../index.html');
     exit;
 }
+require_once '../php/connection.php';
+
 
 $stmt = $pdo->query("SELECT id, first_name, last_name, requested_service, preferred_date, medical_file FROM appointments ORDER BY created_at DESC");
 $appointments = $stmt->fetchAll(PDO::FETCH_ASSOC);
