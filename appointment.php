@@ -300,14 +300,10 @@ $(function(){
         }
         this.submit();
 
-        // If all valid, show a success inline message
         $('#formMsg').text('Appointment submitted successfully! We will contact you to confirm.').css('color','green');
 
-        // Example: collect form data (not sending anywhere in this demo)
         const formData = new FormData($('#appointmentForm')[0]);
-        // console.log(Object.fromEntries(formData.entries()));
 
-        // visually highlight submitted state
         $('.btn-submit').text('Submitted').prop('disabled', true);
     });
 
