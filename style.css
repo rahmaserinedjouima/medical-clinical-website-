@@ -587,7 +587,6 @@ textarea {
     font-weight: 600;
     margin-bottom: 6px;            /* space between label and input */
 }
-
 /* Responsive */
 @media(max-width: 980px) {
     .appointment-card { flex-direction: column; }

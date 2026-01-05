@@ -26,7 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 
         if (strtolower(trim($user['role'])) === 'admin') {
-            header("Location: /medical-clinical-website-/dashboard_admin/manage_appointments.php");
+            header("Location: ../dashboard_admin/manage_appointments.php");
 
         } else {
             header("Location: ../index.html");
@@ -61,7 +61,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
           <a href="../index.html">Home</a>
           <a href="../about.html">About Us</a>
           <a href="../services.html">Services</a>
-          <a href="../appointment.html">Appointment</a>
+          <a href="../appointment.php">Appointment</a>
           <a href="../contact.html">Contact</a>
           <a href="login.php" style="color: rgb(114, 171, 169);;">Login</a> 
           <a href="sign.php">Sign Up</a>

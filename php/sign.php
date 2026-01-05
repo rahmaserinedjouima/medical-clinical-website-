@@ -57,7 +57,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <a href="../index.html">Home</a>
         <a href="../about.html">About Us</a>
         <a href="../services.html">Services</a>
-        <a href="../appointment.html">Appointment</a>
+        <a href="../appointment.php">Appointment</a>
         <a href="../contact.html">Contact</a>
         <a href="login.php">Login</a>
         <a href="sign.php" style="color: rgb(114, 171, 169);;">Sign Up</a>

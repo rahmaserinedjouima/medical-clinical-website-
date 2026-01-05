@@ -1,9 +1,9 @@
 <?php
 // Database credentials
 $host = "localhost";        // Usually localhost
-$dbname = "medical_clinic"; // Your database name
-$username = "root";         // XAMPP default
-$password = "";             // XAMPP default (empty)
+$dbname = "medical_clinic";
+$username = "root";        
+$password = "";           
 
 // Try to connect to MySQL using PDO
 try {

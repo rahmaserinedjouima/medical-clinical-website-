@@ -1,3 +1,8 @@
+
+<?php
+session_start();
+$loggedIn = !empty($_SESSION['logged_in']);
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,7 +25,7 @@
         <a href="index.html">Home</a>
         <a href="about.html">About Us</a>
         <a href="services.html">Services</a>
-        <a href="appointment.html" style="color: rgb(114, 171, 169);;">Appointment</a>
+        <a href="appointment.php" style="color: rgb(114, 171, 169);;">Appointment</a>
         <a href="contact.html">Contact</a>
         <a href="php/login.php">Login</a>
         <a href="php/sign.php">Sign Up</a>
@@ -30,6 +35,11 @@
 <section class="appointement">
     <div class="appointment-card" role="region" aria-label="Appointment booking">
         <div class="card-left">
+             <?php if(!$loggedIn): ?>
+    <p style="color:red; font-weight:bold; text-align:center;">
+        You must <a href="php/login.php?redirect=../appointment.php">log in</a> first to book an appointment.
+    </p>
+<?php endif; ?>
             <h2>Book an Appointment</h2>
             <p>Fill the form and we will contact you to confirm the appointment.</p>
 
@@ -133,7 +143,7 @@
                 </div>
 
                 <div class="form-group full">
-                    <button class="btn-submit" type="submit">Send Message</button>
+<button class="btn-submit" type="submit" <?php if(!$loggedIn) echo 'disabled'; ?>>Send Message</button>
                     <div id="formMsg" role="status" aria-live="polite"></div>
                 </div>
             </form>
